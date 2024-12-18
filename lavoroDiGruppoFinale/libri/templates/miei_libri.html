@@ -1,0 +1,63 @@
+{% load static %}
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I tuoi Libri</title>
+    <link rel="stylesheet" href="{% static 'profilo.css' %}">
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    {% if messages %} <!--se ci sono messaggi -->
+    <div id="messages">
+        {% for message in messages %}
+            <div class="alert {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</head>
+<body>
+    <section>
+        <div class="profile-page">
+            <div class="box-mieilibri">
+                <h2 style="position:relative;top:-40px;left:-15px">I TUOI LIBRI</h2>
+                <form method="GET" action="{% url 'miei_libri' %}">
+                    <input type="text" name="q" placeholder="Cerca un libro..." value="{{ request.GET.q }}" style="position:relative;left:180px;top:-20px;font-weight:bolder;border-radius:20px;height:40px; width:250px">
+                    <button type="submit" style="position:relative;height:40px; width:250px; top:30px;right:74px">Cerca</button>
+                </form>
+                <ul class="book-list">
+                    {% for libro in libri %}
+                        <li style="position:relative;top:30px;font-weight:bolder;font-size:20px;left:20px">{{ libro.titolo }} di {{ libro.autore }} ({{ libro.anno_pubblicazione }})
+                            <a href="{% url 'elimina_libro' libro.id %}" onclick="return confirm('Sei sicuro di voler eliminare questo libro?');" style="position:relative;color:blue">
+                                Elimina
+                            </a>
+                        </li>
+                    {% empty %}
+                        <li>Non hai ancora aggiunto alcun libro.</li>
+                    {% endfor %}
+                </ul>
+           
+           
+                <div class="pagination">
+                    <span class="step-links">
+                        {% if libri.has_previous %}
+                            <a href="?page=1&q={{ query }}">Prima</a>
+                            <a href="?page={{ libri.previous_page_number }}&q={{ query }}">Precedente</a>
+                        {% endif %}
+ 
+                        <span class="current">
+                            Pagina {{ libri.number }} di {{ libri.paginator.num_pages }}.
+                        </span>
+ 
+                        {% if libri.has_next %}
+                            <a href="?page={{ libri.next_page_number }}&q={{ query }}">Successivo</a>
+                            <a href="?page={{ libri.paginator.num_pages }}&q={{ query }}">Ultima</a>
+                        {% endif %}
+                    </span>
+                </div>
+                <p><a href="{% url 'homepage' %}" style="position:relative;top:30px;left:190px;font-weight:bolder;color:orange;font-size:larger">Torna alla Homepage</a></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

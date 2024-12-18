@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambia Password</title>
+  <link rel="stylesheet" href="{% static 'profilo.css' %}">
+  <link rel="stylesheet" href="{% static 'cambio_pass.css' %}">
+</head>
+<body>
+  <section>
+    <div class="form-box">
+      <h2>Cambia Password</h2>
+ 
+      <form action="{% url 'change_password' %}" method="POST">
+        {% csrf_token %}
+ 
+        <div class="form-group">
+          <label for="{{ form.old_password.id_for_label }}">Vecchia Password</label>
+          {{ form.old_password }}
+          {% for error in form.old_password.errors %}
+            <span class="error">{{ error }}</span>
+          {% endfor %}
+        </div>
+ 
+        <div class="form-group">
+          <label for="{{ form.new_password1.id_for_label }}">Nuova Password</label>
+          {{ form.new_password1 }}
+          {% for error in form.new_password1.errors %}
+            <span class="error">{{ error }}</span>
+          {% endfor %}
+        </div>
+ 
+        <div class="form-group">
+          <label for="{{ form.new_password2.id_for_label }}">Conferma Nuova Password</label>
+          {{ form.new_password2 }}
+          {% for error in form.new_password2.errors %}
+            <span class="error">{{ error }}</span>
+          {% endfor %}
+        </div>
+ 
+        <button type="submit">Cambia Password</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>

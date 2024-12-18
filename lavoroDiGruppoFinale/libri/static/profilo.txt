@@ -1,0 +1,102 @@
+/*CSS profilo
+Stile generico */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+ 
+/* Contenitore principale della pagina profilo */
+.profile-page {
+    background-color: white;
+    padding: 30px;
+    padding-top: 10px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+ 
+/* Titolo della pagina profilo */
+.profile-page h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+ 
+/* Testo descrittivo */
+.profile-page p {
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+ 
+/* Stile del form */
+.profile-page form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+ 
+/* Stile per le label */
+.profile-page label {
+    text-align: left;
+    font-size: 14px;
+    color: #444;
+    font-weight: 600;
+}
+ 
+/* Stile per gli input */
+.profile-page input {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+ 
+/* Stile per il bottone */
+.profile-page button {
+    padding: 12px 20px;
+    background-color: #ff6363;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+ 
+/* Effetto hover e click sul bottone */
+.profile-page button:hover {
+    background-color: #ff4747;
+}
+ 
+.profile-page button:active {
+    transform: scale(0.98);
+}
+.image{
+    background-image: url('https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    width: 1820px;
+    height: 1003px;
+    position: absolute;
+    z-index: -1;
+    filter: blur(3px);
+    top: 0px;
+}
+ 

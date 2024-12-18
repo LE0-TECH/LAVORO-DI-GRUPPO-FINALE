@@ -1,0 +1,34 @@
+{% load static %}
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione</title>
+    <link rel="stylesheet" href="{% static 'registrazione.css' %}">
+</head>
+<body>
+    <div class="image"></div>
+    <div class="profile-page">
+    <div class="form-box font">
+        <!-- Form per la Registrazione -->
+        <form class="inputbox" action="{% url 'register' %}" method="POST" id="registration-form">
+            {% csrf_token %}
+            <h2 class="registrazione_title">Registrazione</h2>
+            <label class="generale display_block" for="{{form.username.id_for_label}}">Username</label>
+            {{form.username}}
+            <label class="generale display_block" for="{{ form.email.id_for_label }}">Email</label>
+            {{ form.email }}
+            <label class="generale display_block" for="{{ form.password1.id_for_label }}">Password</label>
+            {{ form.password1 }}
+            <label class="generale display_block" for="{{ form.password2.id_for_label }}">Conferma password</label>
+            {{ form.password2 }}
+            <button type="submit">Registrati</button>
+            {% if form.non_field_errors %}
+                <p style="color:red">{{form.non_field_errors}}</p>
+            {% endif %}
+        </form>
+        <a class="generale display_block font" href="{% url 'login' %}">Hai già un account? Accedi</a>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% load static %}
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <title>Autenticazione Utente</title> -->
+        <link rel="stylesheet" href="{% static 'profilo.css' %}">
+        <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <!-- <div class="image"></div> -->
+    </head>
+    <body>
+        <div class="wrapper">
+            <section>
+                <div class="form-box">
+                    <div class="form-value">
+                        <!-- <h1>Autenticazione</h1> -->
+
+                        <form action="{% url 'login' %}" method="POST" id="login-form">
+                            {% csrf_token %}
+                            <h2>Login</h2>
+                            <div class="inputbox">
+                                <ion-icon name="mail-outline"></ion-icon>
+                                <input type="text" name="username" required>
+                                <label for="">Username</label>
+                            </div>
+                            <div class="inputbox">
+                                <ion-icon name="lock-closed-outline"></ion-icon>
+                                <input type="password" name="password" required>
+                                <label for="">Password</label>
+                            </div>
+                            <button type="submit">Accedi</button>
+                            {% if login_error %}
+                                <p style="color:red;">{{ login_error }}</p>
+                            {% endif %}
+                            <div class="register">
+                                <p>Non hai un account? <a href="{% url 'register' %}">Registrati</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,96 @@
+/* Sfondo a schermo intero */
+.font {
+    font-family: "Poppins", sans-serif;
+}
+
+.image {
+    background-image: url('https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    width: 100%; /* Usa larghezza al 100% per una responsività migliore */
+    height: 1003px;
+    position: absolute;
+    z-index: -1;
+    top:0px;
+}
+
+/* Contenitore del form centrato */
+.profile-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-box {
+    width: 400px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Stile per i campi e le etichette */
+.generale {
+    font-size: large;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+.display_block {
+    display: block;
+    width: 100%;
+    text-align: left; /* Allinea l'etichetta a sinistra del campo */
+    margin-bottom: 5px;
+}
+
+/* Centratura e stile degli input */
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Colore chiaro per i placeholder */
+}
+
+/* Titolo centrato */
+.registrazione_title {
+    color: white;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Pulsante di invio */
+button[type="submit"] {
+    width: 90%; /* Larghezza simile agli input per un look uniforme */
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Spaziatura aggiuntiva sopra il pulsante */
+    text-align: center; /* Centra il testo del pulsante */
+}
+button[type="submit"]:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.accedi{
+    position: relative;
+    left: -10px;
+}
